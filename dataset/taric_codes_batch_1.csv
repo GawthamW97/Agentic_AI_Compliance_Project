@@ -1,0 +1,1043 @@
+Code,Description,Declarable
+0102292100,For slaughter,True
+0102292910,"Young male bovine animals, intended for fattening",True
+0102292920,"Heifers of the grey, brown or yellow mountain breeds and spotted Pinzgau breed",True
+0102292930,Heifers of the Schwyz and Fribourg breeds,True
+0102292940,Heifers of the spotted Simmental breed,True
+0102292950,"Bulls of the Schwyz, Fribourg and spotted Simmental breeds",True
+0102292990,Other,True
+0102294100,For slaughter,True
+0102294910,"Young male bovine animals, intended for fattening",True
+0102294920,"Heifers and cows of the grey, brown or yellow mountain breeds and spotted Pinzgau breed",True
+0102294930,Heifers and cows of the Schwyz and Fribourg breeds,True
+0102294940,Heifers and cows of the spotted Simmental breed,True
+0102294950,"Bulls of the Schwyz, Fribourg and spotted Simmental breeds",True
+0102294990,Other,True
+0102295911,"Heifers of the grey, brown or yellow mountain breeds and spotted Pinzgau breed",False
+0102295921,Of the Schwyz and Fribourg breeds,False
+0102295931,Of the spotted Simmental breed,False
+0102295991,Other,False
+0102296100,For slaughter,True
+0102296910,"Heifers of the grey, brown or yellow mountain breeds and spotted Pinzgau breed",True
+0102296920,Of the Schwyz and Fribourg breeds,True
+0102296930,Of the spotted Simmental breed,True
+0102296990,Other,True
+0102299921,"Bulls of the Schwyz, Fribourg and spotted Simmental breeds",False
+0102299991,Other,False
+0102909900,Other,True
+0103921100,"Sows having farrowed at least once, of a weight of not less than 160|kg",True
+0103921900,Other,True
+0105111100,Laying stocks,True
+0105111900,Other,True
+0105119100,Laying stocks,True
+0105119900,Other,True
+0203121100,Hams and cuts thereof,True
+0203121900,Shoulders and cuts thereof,True
+0203191100,Fore-ends and cuts thereof,True
+0203191300,"Loins and cuts thereof, with bone in",True
+0203191500,Bellies (streaky) and cuts thereof,True
+0203195900,Other,True
+0203221100,Hams and cuts thereof,True
+0203221900,Shoulders and cuts thereof,True
+0203291100,Fore-ends and cuts thereof,True
+0203291300,"Loins and cuts thereof, with bone in",True
+0203291500,Bellies (streaky) and cuts thereof,True
+0203295900,Other,True
+0204501100,Carcases and half-carcases,True
+0204501300,Short forequarters,True
+0204501500,Chines and/or best ends,True
+0204501900,Legs,True
+0204503100,Cuts with bone in,True
+0204503910,Goatmeat of kid,True
+0204503990,Other,True
+0204505100,Carcases and half-carcases,True
+0204505300,Short forequarters,True
+0204505500,Chines and/or best ends,True
+0204505900,Legs,True
+0204507100,Cuts with bone in,True
+0204507910,Goatmeat of kid,True
+0204507990,Other,True
+0206109800,Other,True
+0206299900,Other,True
+0206809100,"Of horses, asses, mules and hinnies",True
+0206809900,Of sheep and goats,True
+0206909100,"Of horses, asses, mules and hinnies",True
+0206909900,Of sheep and goats,True
+0207139100,Livers,True
+0207139900,Other,True
+0207149100,Livers,True
+0207149900,Other,True
+0207269100,Livers,True
+0207269900,Other,True
+0207279100,Livers,True
+0207279900,Other,True
+0207442100,Halves or quarters,True
+0207443100,"Whole wings, with or without tips",True
+0207444100,"Backs, necks, backs with necks attached, rumps and wing-tips",True
+0207445100,Breasts and cuts thereof,True
+0207446100,Legs and cuts thereof,True
+0207447100,Paletots,True
+0207448100,Other,True
+0207449100,"Livers, other than fatty livers",True
+0207449900,Other,True
+0207452100,Halves or quarters,True
+0207453100,"Whole wings, with or without tips",True
+0207454100,"Backs, necks, backs with necks attached, rumps and wing-tips",True
+0207455100,Breasts and cuts thereof,True
+0207456100,Legs and cuts thereof,True
+0207457100,Paletots,True
+0207458100,Other,True
+0207459900,Other,True
+0207542100,Halves or quarters,True
+0207543100,"Whole wings, with or without tips",True
+0207544100,"Backs, necks, backs with necks attached, rumps and wing-tips",True
+0207545100,Breasts and cuts thereof,True
+0207546100,Legs and cuts thereof,True
+0207547100,Paletots,True
+0207548100,Other,True
+0207549100,"Livers, other than fatty livers",True
+0207549900,Other,True
+0207552100,Halves or quarters,True
+0207553100,"Whole wings, with or without tips",True
+0207554100,"Backs, necks, backs with necks attached, rumps and wing-tips",True
+0207555100,Breasts and cuts thereof,True
+0207556100,Legs and cuts thereof,True
+0207557100,Paletots,True
+0207558100,Other,True
+0207559900,Other,True
+0207600510,fresh or chilled,True
+0207600590,frozen,True
+0207603100,"Whole wings, with or without tips",True
+0207604100,"Backs, necks, backs with necks attached, rumps and wing-tips",True
+0207605100,Breasts and cuts thereof,True
+0207606100,Legs and cuts thereof,True
+0207608100,Other,True
+0207609900,Other,True
+0209101100,"Fresh, chilled, frozen, salted or in brine",True
+0209101900,Dried or smoked,True
+0210113100,Hams and cuts thereof,True
+0210113900,Shoulders and cuts thereof,True
+0210121100,Salted or in brine,True
+0210121900,Dried or smoked,True
+0210198900,Other,True
+0210929100,Meat,True
+0210929200,Offal,True
+0210929900,Edible flours and meals of meat or meat offal,True
+0210992910,Frozen,True
+0210992990,Other,True
+0210993910,"Poultrymeat, salted or in brine, of heading 0207",True
+0210993990,Other,True
+0210995910,Of bison,True
+0210995990,Other,True
+0210998510,Of sheep and goats,True
+0210998590,Other,True
+0301991700,Other,True
+0301998510,Sharks (Squalus|spp.),True
+0301998522,European sea bass (Dicentrarchus labrax),True
+0301998530,Porbeagle shark (Lamna nasus),True
+0301998540,Lesser or Greenland halibut (Reinhardtius hippoglossoides),True
+0301998550,Atlantic halibut (Hippoglossus hippoglossus),True
+0301998560,Gilt-head sea bream (Sparus aurata),True
+0301998570,Swordfish (Xiphias gladius),True
+0301998575,Bigeye tuna (Thunnus obesus),True
+0301998580,"Sea bream (Dentex dentex, Pagellus|spp.)",True
+0301998590,Other,True
+0302351100,For the industrial manufacture of products of heading|1604,True
+0302351900,Other,True
+0302359100,For the industrial manufacture of products of heading|1604,True
+0302359900,Other,True
+0302491100,For the industrial manufacture of products of heading|1604,True
+0302491900,Other,True
+0302541100,Cape hake (shallow-water hake) (Merluccius capensis) and deepwater hake (deepwater Cape hake) (Merluccius paradoxus),True
+0302541500,Southern hake (Merluccius australis),True
+0302541910,Silver hake (Merluccius bilinearis),True
+0302541920,Hake of the species Merluccius merluccius,True
+0302541990,Other,True
+0302894000,Ray's bream (Brama spp.),True
+0302895000,Monkfish (Lophius spp.),True
+0302896000,Pink cusk-eel (Genypterus blacodes),True
+0302893100,Of the species Sebastes marinus,True
+0302893910,Of the species Sebastes mentella,True
+0302893990,Other,True
+0303398510,Megrim (Lepidorhombus|spp.),True
+0303398580,"Flatfish (Limanda aspera, Lepidopsetta bilineata, Pleuronectes quadrituberculatus, Limanda ferruginea, Lepidopsetta polyxystra, Eopsetta jordani), for processing",True
+0303398590,Other,True
+0303451200,For the industrial manufacture of products of heading|1604,True
+0303451800,Other,True
+0303459100,For the industrial manufacture of products of heading|1604,True
+0303459900,Other,True
+0303592100,For the industrial manufacture of products of heading 1604,True
+0303592900,Other,True
+0303661210,For processing,True
+0303661290,Other,True
+0303661310,For processing,True
+0303661390,Other,True
+0303661911,Silver hake (Merluccius bilinearis),False
+0303661980,Hake of the species Merluccius merluccius,True
+0303661991,Other hake of the genus Merluccius,False
+0303894000,Fish of the species Orcynopsis unicolor,True
+0303895000,"Sea bream (Dentex dentex, Pagellus spp.)",True
+0303895500,Gilt-head sea bream (Sparus aurata),True
+0303896000,Ray's bream (Brama spp.),True
+0303896500,Monkfish (Lophius spp.),True
+0303893100,Of the species Sebastes marinus,True
+0303893910,Of the species Sebastes mentella,True
+0303893990,Other,True
+0304741100,Cape hake (shallow-water hake) (Merluccius capensis) and deepwater hake (deepwater Cape hake) (Merluccius paradoxus),True
+0304741510,For processing,True
+0304741590,Other,True
+0304741910,"North Pacific hake (Merluccius productus), for processing",True
+0304741990,Other,True
+0304881100,Piked dogfish (Squalus acanthias) and catsharks (Scyliorhinus spp.),True
+0304881500,Porbeagle shark (Lamna nasus),True
+0304881800,Blue shark (Prionace glauca),True
+0304882200,Shortfin Mako shark (Isurus Oxyrinchus),True
+0304882900,Other,True
+0304893000,Fish of the genus Euthynnus,True
+0304896000,Monkfish (Lophius spp.),True
+0304892910,Of the species Sebastes mentella,True
+0304892990,Other,True
+0304894100,Mackerel of the species Scomber australasicus,True
+0304894910,Mackerel of the species Scomber scombrus,True
+0304894920,Mackerel of the species Scomber japonicus,False
+0304894990,Fish of the species Orcynopsis unicolor,True
+0304953000,Haddock (Melanogrammus aeglefinus),True
+0304954000,Coalfish (Pollachius virens),True
+0304956000,Blue whiting (Micromesistius poutassou),True
+0304952510,For processing,True
+0304952590,Other,True
+0304992900,Redfish (Sebastes spp.),True
+0304995500,Megrim (Lepidorhombus spp.),True
+0304996100,Ray's bream (Brama spp.),True
+0304996500,Monkfish (Lophius spp.),True
+0304999912,"Of mackerel (Scomber scombrus, Scomber australasicus, Scomber japonicus)",False
+0304999920,"Sea bream (Dentex dentex, Pagellus|spp.)",True
+0304999925,Of gilt-head sea breams (Sparus aurata),True
+0304999940,Of bluefin tuna (Thunnus thynnus),True
+0304999950,Of Atlantic bigeye tuna (Thunnus obesus),True
+0304999965,"Of flatfish (Limanda aspera, Lepidopsetta bilineata, Pleuronectes quadrituberculatus, Limanda ferruginea, Lepidopsetta polyxystra)",False
+0304999970,European sea bass (Dicentrarchus labrax),True
+0304999990,Other,True
+0305321100,Cod of the species Gadus macrocephalus,True
+0305321910,Cod of the species Gadus morhua,True
+0305321990,Other,True
+0305598540,Atlantic bluefin tuna (Thunnus thynnus),True
+0305598545,Bigeye tuna (Thunnus obesus),True
+0305598561,"Trout (Salmo trutta, Oncorhynchus mykiss, Oncorhynchus clarki, Oncorhynchus aguabonita, Oncorhynchus gilae, Oncorhynchus apache and Onchorhynchus chrysogaster)",True
+0305598564,Gilt-head sea bream (Sparus aurata),True
+0305598565,"Sea bream (Dentex dentex, Pagellus|spp.)",True
+0305598567,Sea bass (Dicentrarchus labrax),True
+0305598570,"Lesser or Greenland Halibut (Reinhardtius hippoglossoides), and Pacific Halibut (Hippoglossus stenolepis)",True
+0305598590,Other,True
+0305711510,Smoked,True
+0305711590,Other,True
+0306169920,"Of the species Pandalus borealis, in shell, for processing",True
+0306169930,"Of the species Pandalus montagui, in shell, for processing",True
+0306169990,Other,True
+0306179220,"Shrimps and prawns of the specie Penaeus vannamei and Penaeus monodon, whether in shell or not, not cooked, for processing",True
+0306179290,Other,True
+0306179910,"Shrimps and prawns of the specie Pleoticus muelleri, whether in shell or not, for processing",True
+0306179990,Other,True
+0306329100,Whole,True
+0306329900,Other,True
+0306951910,"Smoked, whether in shell or not, whether or not cooked before or during the smoking process, not otherwise prepared, in immediate packings of a net content exceeding 2|kg",True
+0306951990,Other,True
+0307432900,"Sepia officinalis, Rossia macrosoma",True
+0307433100,Loligo vulgaris,True
+0307433800,Other,True
+0307433310,For processing,True
+0307433390,Other,True
+0307433510,For processing,True
+0307433590,Other,True
+0307439110,"Pod (body of cephalopod or the squid headless and without tentacles), with skin and fins, for processing",True
+0307439120,"Whole or tentacles and fins, for processing",True
+0307439190,Other,True
+0307439210,"Pod (body of cephalopod or the squid headless and without tentacles), with skin and fins, for processing",True
+0307439220,"Whole or tentacles and fins, for processing",True
+0307439290,Other,True
+0307439921,Todarodes pacificus,False
+0307439990,Other,True
+0401201100,In immediate packings of a net content not exceeding two litres,True
+0401201900,Other,True
+0401209100,In immediate packings of a net content not exceeding two litres,True
+0401209900,Other,True
+0401501910,Cream,True
+0401501990,Milk,True
+0401503910,Cream,True
+0401503990,Milk,True
+0401509910,Cream,True
+0401509990,Milk,True
+0402101100,"In immediate packings of a net content not exceeding 2,5|kg",True
+0402101900,Other,True
+0402109100,"In immediate packings of a net content not exceeding 2,5|kg",True
+0402109900,Other,True
+0402211100,"In immediate packings of a net content not exceeding 2,5|kg",True
+0402211800,Other,True
+0402219100,"In immediate packings of a net content not exceeding 2,5|kg",True
+0402219900,Other,True
+0402291100,"Special milk, for infants, in hermetically sealed containers of a net content not exceeding 500|g, of a fat content, by weight, exceeding 10|%",True
+0402291500,"In immediate packings of a net content not exceeding 2,5|kg",True
+0402291900,Other,True
+0402299100,"In immediate packings of a net content not exceeding 2,5|kg",True
+0402299900,Other,True
+0402915100,"In immediate packings of a net content not exceeding 2,5|kg",True
+0402915900,Other,True
+0402919100,"In immediate packings of a net content not exceeding 2,5|kg",True
+0402919900,Other,True
+0402993100,"In immediate packings of a net content not exceeding 2,5|kg",True
+0402993900,Other,True
+0402999100,"In immediate packings of a net content not exceeding 2,5|kg",True
+0402999900,Other,True
+0403203100,Not exceeding 3|%,True
+0403203300,Exceeding 3|% but not exceeding 6|%,True
+0403203900,Exceeding 6|%,True
+0403204100,"Containing, by weight, less than 1,5|% milkfat, 5|% sucrose (including invert sugar) or isoglucose, 5|% glucose or starch",True
+0403204933,Containing 60|% or more by weight of sucrose (including invert sugar expressed as sucrose) or isoglucose expressed as sucrose,False
+0403204990,Other,True
+0403209100,Not exceeding 3|%,True
+0403209300,Exceeding 3|% but not exceeding 6|%,True
+0403209900,Exceeding 6|%,True
+0403903100,"Not exceeding 1,5|%",True
+0403903300,"Exceeding 1,5|% but not exceeding 27|%",True
+0403903900,Exceeding 27|%,True
+0403906100,Not exceeding 3|%,True
+0403906300,Exceeding 3|% but not exceeding 6|%,True
+0403906900,Exceeding 6|%,True
+0403909100,Not exceeding 3|%,True
+0403909300,Exceeding 3|% but not exceeding 6|%,True
+0403909900,Exceeding 6|%,True
+0404101200,"Not exceeding 1,5|%",True
+0404101400,"Exceeding 1,5|% but not exceeding 27|%",True
+0404101600,Exceeding 27|%,True
+0404103400,"Not exceeding 1,5|%",True
+0404103600,"Exceeding 1,5|% but not exceeding 27|%",True
+0404103800,Exceeding 27|%,True
+0404105600,"Not exceeding 1,5|%",True
+0404105800,"Exceeding 1,5|% but not exceeding 27|%",True
+0404106200,Exceeding 27|%,True
+0404107800,"Not exceeding 1,5|%",True
+0404108200,"Exceeding 1,5|% but not exceeding 27|%",True
+0404108400,Exceeding 27|%,True
+0404902100,"Not exceeding 1,5|%",True
+0404902300,"Exceeding 1,5|% but not exceeding 27|%",True
+0404902900,Exceeding 27|%,True
+0404908100,"Not exceeding 1,5|%",True
+0404908900,Exceeding 27|%,True
+0404908310,"Special milk, for infants, in hermetically sealed containers of a net content not exceeding|500|g of a fat content, by weight, exceeding|10|%",True
+0404908390,Other,True
+0405103000,Recombined butter,True
+0405105000,Whey butter,True
+0406309000,"Of a fat content, by weight, exceeding 36|%",True
+0406901300,Emmentaler,True
+0406901500,"Gruyère, Sbrinz",True
+0406901700,"Bergkäse, Appenzell",True
+0406901800,"Fromage fribourgeois, Vacherin Mont d'Or and Tête de Moine",True
+0406902300,Edam,True
+0406902500,Tilsit,True
+0406902900,Kashkaval,True
+0406903200,Feta,True
+0406903500,Kefalo-Tyri,True
+0406903700,Finlandia,True
+0406903900,Jarlsberg,True
+0406902120,"Whole cheeses (of the conventional flat cylindrical shape of a net weight of not less than 33|kg but not more than 44|kg and cheeses in cubic blocks or in parallelepiped shape, of a net weight of 10|kg or more) of a minimum fat content of 50% by weight, in the dry matter, matured for at least three months",True
+0406902190,Other,True
+0406909900,Other,True
+0406906310,Pecorino,True
+0406906390,Other,True
+0406907300,Provolone,True
+0406907400,Maasdam,True
+0406907800,Gouda,True
+0406908200,Camembert,True
+0406908400,Brie,True
+0406908500,"Kefalograviera, Kasseri",True
+0406907510,Caciocavallo,True
+0406907590,Other,True
+0406907610,Fontina,True
+0406907690,Other,True
+0406907910,"Esrom, Italico, Kernhem, Saint-Paulin",True
+0406907990,Other,True
+0406908110,Cantal,True
+0406908190,Other,True
+0406908910,"Tulum Peyniri, made from sheep’s milk or buffalo milk, in individual plastic or other kind of packings of less than 10 kg",True
+0406908990,Other,True
+0406909210,"Tulum Peyniri, made from sheep’s milk or buffalo milk, in individual plastic or other kind of packings of less than 10 kg",True
+0406909290,Other,True
+0407191100,Of turkeys or geese,True
+0407191900,Other,True
+0408198100,Liquid,True
+0408198900,"Other, including frozen",True
+0410109100,Flours and meals,True
+0410109900,Other,True
+0511993100,Raw,True
+0511993900,Other,True
+0511998510,Mammalian semen,True
+0511998520,Mammalian ova and mammalian embryos,True
+0511998590,Other,True
+0511998510,Mammalian semen,True
+0511998520,Mammalian ova and mammalian embryos,True
+0511998590,Other,True
+0602904500,Rooted cuttings and young plants,True
+0602904600,With bare roots,True
+0602904700,Conifers and evergreens,True
+0602904800,Other,True
+0602909910,Potted plants not exceeding 1|m in height,True
+0602909990,Other,True
+0604201100,Reindeer moss,True
+0604201900,Other,True
+0604901100,Reindeer moss,True
+0604901900,Other,True
+0604909100,Not further prepared than dried,True
+0604909900,Other,True
+0702009100,In trusses,True
+0702009100,In trusses,True
+0702009907,Cherry tomatoes,True
+0702009999,Other,True
+0702009907,Cherry tomatoes,True
+0702009999,Other,True
+0703101100,Sets,True
+0703101900,Other,True
+0707000510,Intended for processing,False
+0707000590,Other,False
+0707000510,Intended for processing,False
+0707000590,Other,False
+0709609100,"Of the genus Capsicum, for the manufacture of capsicin or capsicum oleoresin dyes",True
+0709609500,For the industrial manufacture of essential oils or resinoids,True
+0709609920,Peppers (other than sweet) (Capsicum spp.),True
+0709609990,Other,True
+0710805100,Sweet peppers,True
+0710805920,Peppers (other than sweet) (Capsicum spp.),True
+0710805990,Other,True
+0710806100,Of the genus Agaricus,True
+0710806910,"Of the species Auricularia polytricha, for the manufacture of prepared meals",True
+0710806990,Other,True
+0710809530,Okra,True
+0710809550,"Bamboo shoots, frozen, not put up for retail sale",True
+0710809575,Drumsticks (Moringa oleifera),True
+0710809578,Headed broccoli,True
+0710809580,Other,True
+0712901100,Hybrids for sowing,True
+0712901900,Other,True
+0803901100,Plátano de Canarias,True
+0803901900,Other,True
+0805102410,Of high quality,True
+0805102490,Other,True
+0805102410,Of high quality,True
+0805102490,Other,True
+0805102810,Of high quality,True
+0805102890,Other,True
+0805102810,Of high quality,True
+0805102890,Other,True
+0810907520,Sugar apple (Annona squamosa),True
+0810907530,Pomegranates,True
+0810907550,Barbary figs,True
+0810907560,Medlars,True
+0810907590,Other,True
+0811101100,With a sugar content exceeding 13|% by weight,True
+0811101900,Other,True
+0811201910,Raspberries,True
+0811201915,Blackberries,True
+0811201920,Mulberries,True
+0811201925,Loganberries,True
+0811201930,Blackcurrants,True
+0811201935,Whitecurrants,True
+0811201940,Redcurrants,True
+0811201945,Gooseberries,True
+0811203100,Raspberries,True
+0811203900,Blackcurrants,True
+0811205100,Redcurrants,True
+0811205900,Blackberries and mulberries,True
+0811209000,Other,True
+0811901912,Cherries,True
+0811901990,Other,True
+0811903100,Tropical fruit and tropical nuts,True
+0811903912,Cherries,True
+0811903990,Other,True
+0811907500,Sour cherries (Prunus cerasus),True
+0811908000,Other,True
+0811909520,"Boysenberries, frozen, not containing added sugar, not put up for retail sale",True
+0811909530,"Pineapple (Ananas comosus), in pieces, frozen",True
+0811909590,Other,True
+0812902511,Oranges,False
+0812902590,Apricots,True
+0812909811,"Fruit falling within heading and subheading Nos 0803, 0804 10, 0805 40, 0810 20 90,  0810 30 90, 0810 40 10, 0810 40 50, 0810 50, 0810 60, 0810 70 and 0810 90 75",False
+0812909820,"Other citrusfruit, comminuted",True
+0812909890,Other,True
+0813409510,Goji berries (wolfberries) (Lycium barbarum L.),True
+0813409580,Other,True
+0813501900,Containing prunes,True
+0813503920,Containing Brazil nuts in shell,True
+0813503960,Containing pistachios,True
+0813503970,Containing hazelnuts,True
+0813503980,Other,True
+0813509920,Containing Brazil nuts in shell,True
+0813509950,Containing figs,True
+0813509960,Containing pistachios,True
+0813509970,Containing hazelnuts,True
+0813509980,Other,True
+0910993900,Crushed or ground,True
+0910999100,Neither crushed nor ground,True
+0910999900,Crushed or ground,True
+1005101300,Three-cross hybrids,True
+1005101500,Simple hybrids,True
+1005101800,Other,True
+1006107100,Of a length/width ratio greater than 2|but less than 3,True
+1006107900,Of a length/width ratio equal to or greater than 3,True
+1006201100,Round grain,True
+1006201300,Medium grain,True
+1006201500,Of a length/width ratio greater than 2|but less than 3,True
+1006201713,Aromatic rice,False
+1006201799,Other,True
+1006201713,Aromatic rice,False
+1006201799,Other,True
+1006201913,Aromatic rice,False
+1006201999,Other,True
+1006201913,Aromatic rice,False
+1006201999,Other,True
+1006209200,Round grain,True
+1006209400,Medium grain,True
+1006209600,Of a length/width ratio greater than 2|but less than 3,True
+1006209813,Aromatic rice,False
+1006209899,Other,True
+1006209813,Aromatic rice,False
+1006209899,Other,True
+1006209913,Aromatic rice,False
+1006209999,Other,True
+1006209913,Aromatic rice,False
+1006209999,Other,True
+1006302310,In immediate packings of a net content not exceeding 5|kg,True
+1006302320,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,True
+1006302390,Other,True
+1006302712,In immediate packings of a net content not exceeding 5|kg,False
+1006302722,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006302792,Other,False
+1006302712,In immediate packings of a net content not exceeding 5|kg,False
+1006302722,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006302792,Other,False
+1006302912,In immediate packings of a net content not exceeding 5|kg,False
+1006302922,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006302992,Other,False
+1006302912,In immediate packings of a net content not exceeding 5|kg,False
+1006302922,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006302992,Other,False
+1006304410,In immediate packings of a net content not exceeding 5|kg,True
+1006304420,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,True
+1006304490,Other,True
+1006304812,In immediate packings of a net content not exceeding 5|kg,False
+1006304822,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006304892,Other,False
+1006304812,In immediate packings of a net content not exceeding 5|kg,False
+1006304822,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006304892,Other,False
+1006304912,In immediate packings of a net content not exceeding 5|kg,False
+1006304922,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006304992,Other,False
+1006304912,In immediate packings of a net content not exceeding 5|kg,False
+1006304922,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006304992,Other,False
+1006306310,In immediate packings of a net content not exceeding 5|kg,True
+1006306320,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,True
+1006306390,Other,True
+1006306712,In immediate packings of a net content not exceeding 5|kg,False
+1006306722,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006306792,Other,False
+1006306712,In immediate packings of a net content not exceeding 5|kg,False
+1006306722,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006306792,Other,False
+1006306912,In immediate packings of a net content not exceeding 5|kg,False
+1006306922,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006306992,Other,False
+1006306912,In immediate packings of a net content not exceeding 5|kg,False
+1006306922,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006306992,Other,False
+1006309410,In immediate packings of a net content not exceeding 5|kg,True
+1006309420,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,True
+1006309490,Other,True
+1006309812,In immediate packings of a net content not exceeding 5|kg,False
+1006309822,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006309892,Other,False
+1006309812,In immediate packings of a net content not exceeding 5|kg,False
+1006309822,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006309892,Other,False
+1006309912,In immediate packings of a net content not exceeding 5|kg,False
+1006309922,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006309992,Other,False
+1006309912,In immediate packings of a net content not exceeding 5|kg,False
+1006309922,In immediate packings of a net content exceeding 5|kg but not exceeding 20|kg,False
+1006309992,Other,False
+1101001100,Of durum wheat,True
+1101001500,Of common wheat and spelt,True
+1103202510,Of rye,True
+1103202590,Of barley,True
+1104196100,Rolled,True
+1104196900,Flaked,True
+1104199100,Flaked rice,True
+1104199900,Other,True
+1104290400,"Hulled (shelled or husked), whether or not sliced or kibbled",True
+1104290500,Pearled,True
+1104290800,Other,True
+1104295100,Of wheat,True
+1104295500,Of rye,True
+1104295900,Other,True
+1104298100,Of wheat,True
+1104298500,Of rye,True
+1104298900,Other,True
+1107101100,In the form of flour,True
+1107101900,Other,True
+1107109100,In the form of flour,True
+1107109900,Other,True
+1206009100,Shelled; in grey-and-white-striped shell,True
+1206009900,Other,True
+1207999100,Hemp seeds,True
+1207999610,Pumpkin seeds  (Cucurbita pepo L. convar. citrullinia Greb. var. styriaca and Cucurbita pepo L. var. oleifera Pietsch),True
+1207999690,Other,True
+1209999100,"Seeds of plants cultivated principally for their flowers, other than those of subheading|1209|30",True
+1209999910,Seeds,True
+1209999990,Other,True
+1211908610,"Curry leaves (Bergera koenigii, Syn.: Murraya koenigii)",True
+1211908620,"Basil (holy, sweet) (fresh or chilled)",True
+1211908630,Mint (fresh or chilled),True
+1211908640,Dried oregano,True
+1211908660,Gotukola (Centella asiatica),True
+1211908690,Other,True
+1212994100,"Not decorticated, crushed or ground",True
+1212994900,Other,True
+1212999510,Bee pollen,True
+1212999520,"Unprocessed whole, ground, milled, cracked, chopped apricot kernels intended to be placed on the market for the final consumer",True
+1212999590,Other,True
+1503001100,For industrial uses,True
+1503001900,Other,True
+1504109100,Of halibut,True
+1504109900,Other,True
+1511901100,In immediate packings of a net content not exceeding 1|kg,True
+1511901920,"For the manufacture of:
+ 
+-|industrial monocarboxylic fatty acids of subheading 3823|19|10,
+ 
+-|methyl esters of fatty acids of heading 2915|or 2916,
+ 
+-|fatty alcohols of subheadings 2905|17, 2905|19|and 3823|70|used for the manufacture of cosmetics, washing products or pharmaceutical products,
+ 
+-|fatty alcohols of subheading 2905|16, pure or mixed, used for the manufacture of cosmetics, washing products or pharmaceutical products,
+ 
+-|stearic acid of subheading 3823|11|00,
+ 
+-|goods of heading 3401, or
+ 
+-|fatty acids with high purity of heading 2915",True
+1511901990,Other,True
+1511909900,Other,True
+1512119100,Sunflower-seed oil,True
+1512119900,Safflower oil,True
+1513119100,In immediate packings of a net content not exceeding 1|kg,True
+1513119900,Other,True
+1513191100,In immediate packings of a net content not exceeding 1|kg,True
+1513191900,Other,True
+1513199100,In immediate packings of a net content not exceeding 1|kg,True
+1513199900,Other,True
+1513291100,In immediate packings of a net content not exceeding 1|kg,True
+1513291900,Other,True
+1515501100,For technical or industrial uses other than the manufacture of foodstuffs for human consumption,True
+1515501900,Other,True
+1515509100,For technical or industrial uses other than the manufacture of foodstuffs for human consumption,True
+1515509900,Other,True
+1515601100,For technical or industrial uses other than the manufacture of foodstuffs for human consumption,True
+1515605100,"Solid, in immediate packings of a net content not exceeding 1|kg",True
+1515605900,"Solid, other; fluid",True
+1515609100,"Solid, in immediate packings of a net content not exceeding 1|kg",True
+1515609900,"Solid, other; fluid",True
+1515903100,For technical or industrial uses other than the manufacture of foodstuffs for human consumption,True
+1515903900,Other,True
+1515905100,"Solid, in immediate packings of a net content not exceeding 1|kg",True
+1515905900,"Solid, other; fluid",True
+1515909100,"Solid, in immediate packings of a net content not exceeding 1|kg",True
+1515909920,Hazelnut oil,True
+1515909992,"Vegetable oil, refined or semi-refined, containing by weight 35 % or more but not more than 57 % of arachidonic acid or 35 % or more but not more than 50 % of docosahexaenoic acid",True
+1515909999,Other,True
+1516209100,In immediate packings of a net content not exceeding 1|kg,True
+1516209500,"Colza, linseed, rapeseed, sunflower-seed, illipe, karite, makore, touloucouna or babassu oils, for technical or industrial uses other than the manufacture of foodstuffs for human consumption",True
+1516209600,"Groundnut, cotton-seed, soya-bean or sunflower-seed oils; other oils containing less than 50|% by weight of free fatty acids and excluding palm kernel, illipe, coconut, colza, rapeseed or copaiba oils",True
+1516209821,"Blends containing by weight more than 20% of fatty-acid mono-alkyl esters and/or paraffinic gasoil obtained from synthesis and/or hydro-treatment, of non-fossil origin",False
+1516209833,"Blends containing by weight 20% or less of fatty-acid mono-alkyl esters and/or paraffinic gasoil obtained from synthesis and/or hydro-treatment, of non-fossil origin",True
+1516209880,Other,True
+1517909100,"Fixed vegetable oils, fluid, mixed",True
+1517909300,Edible mixtures or preparations of a kind used as mould-release preparations,True
+1517909920,"An edible mixture of animal and vegetable oils consisting of 99 % or more by weight of fish oil exclusively from the species Pacific pollock (Gadus chalcogrammus):
+ 
+-containing by weight 90 % or more of triglycerides, with 50 % or more by weight of its fatty acids being omega-3 fatty acids,
+ 
+-containing by weight 0,15 % or more but not more than 0,25 % of tocopherols and vegetable oils,
+ 
+-in immediate packing in steel drums of more than 180 kg/net but not more than 200 kg/net,
+for use in the manufacture of fish oil-based omega-3 supplements in the form of soft gel capsules",True
+1517909930,"Vegetable and/or microbial oil, refined, containing by weight:
+ 
+-25 % or more but not more than 70 % arachidonic acid and no more than 5 % docosahexenoic acid, or
+ 
+-10 % or more but not more than 80 % of eicosapentaenoic acid and a minimum ratio of EPA/(EPA+DHA) over 20 %, 
+standardized with vegetable oil",True
+1517909990,Other,True
+1518003100,Crude,True
+1518003900,Other,True
+1518009921,"Blends containing by weight more than 20% of fatty-acid mono-alkyl esters and/or paraffinic gasoil obtained from synthesis and/or hydro-treatment, of non-fossil origin",False
+1518009933,"Blends containing by weight 20% or less of fatty-acid mono-alkyl esters and/or paraffinic gasoil obtained from synthesis and/or hydro-treatment, of non-fossil origin",True
+1518009990,Other,True
+1521909100,Raw,True
+1521909900,Other,True
+1522009100,Oil foots and dregs; soapstocks,True
+1522009900,Other,True
+1601009911,"Of animals of headings 0101 to 0104, excluding wild boars",False
+1601009991,Other,False
+1602311100,Containing exclusively uncooked turkey meat,True
+1602311900,Other,True
+1602321910,Canned luncheon meat of chicken; Chicken floss; Chicken Glutinous rice,True
+1602321990,Other,True
+1602392100,Uncooked,True
+1602392900,Other,True
+1602398510,"Processed meat, containing 25% or more by weight of poultry meat or offal",True
+1602398590,Other,True
+1602493000,"Containing by weight 40|% or more but less than 80|% of meat or meat offal, of any kind, including fats of any kind or origin",True
+1602495000,"Containing by weight less than 40|% of meat or meat offal, of any kind, including fats of any kind or origin",True
+1602491910,"Pork neck, dried in air, seasoned or not, whole, in pieces or thinly sliced",True
+1602491920,Canned pork luncheon meat; Pork floss,True
+1602491990,Other,True
+1602503100,"Corned beef, in airtight containers",True
+1602509510,Canned beef luncheon meat; Samosa of grounded beef,True
+1602509590,Other,True
+1602903100,Of game or rabbit,True
+1602905100,Containing meat or meat offal of domestic swine,True
+1602909100,Of sheep,True
+1602909500,Of goats,True
+1602909900,Other,True
+1604129900,Other,True
+1604131920,Of the species Sardina pilchardus,True
+1604131990,Other,True
+1604142800,Other,True
+1604143800,Other,True
+1604144810,Bluefin tuna (Thunnus thynnus),True
+1604144820,Atlantic bigeye tuna (Thunnus obesus),True
+1604144830,Albacore tuna (Thunnus alalunga),True
+1604144890,Other,True
+1604151100,Fillets,True
+1604151900,Other,True
+1604193100,Fillets known as 'loins',True
+1604193900,Other,True
+1604199200,"Cod (Gadus morhua, Gadus ogac, Gadus macrocephalus)",True
+1604199400,"Hake (Merluccius spp., Urophycis spp.)",True
+1604199500,Alaska pollock (Theragra chalcogramma) and pollack (Pollachius pollachius),True
+1604199310,Preserved smoked coalfish,True
+1604199390,Other,True
+1604199720,Swordfish (Xiphias gladius),True
+1604199730,Mackerel (Scomber colias),True
+1604199740,"Frigate tuna, Frigate mackerel (Auxis thazard, Auxis rochei)",True
+1604199790,Other,True
+1702907100,Containing 50|% or more by weight of sucrose in the dry matter,True
+1702907500,"In the form of powder, whether or not agglomerated",True
+1702907900,Other,True
+1704905100,"Pastes, including marzipan, in immediate packings of a net content of 1|kg or more",True
+1704905500,Throat pastilles and cough drops,True
+1704906100,Sugar-coated (panned) goods,True
+1704906500,"Gum confectionery and jelly confectionery, including fruit pastes in the form of sugar confectionery",True
+1704907100,"Boiled sweets, whether or not filled",True
+1704907500,"Toffees, caramels and similar sweets",True
+1704908100,Compressed tablets,True
+1704909911,Containing less than 70|% by weight of sucrose (including invert sugar expressed as sucrose),False
+1704909992,Containing|70|% or more by weight of sucrose (including invert sugar expressed as sucrose),False
+1806209512,Containing less than 70|% by weight of sucrose (including invert sugar expressed as sucrose),False
+1806209592,Containing|70|% or more by weight of sucrose (including invert sugar expressed as sucrose),False
+1806903100,Filled,True
+1806903900,Not filled,True
+1901901100,With a dry extract content of 90|% or more by weight,True
+1901901900,Other,True
+1901909100,"Containing no milkfats, sucrose, isoglucose, glucose or starch or containing less than 1,5|% milkfat, 5|% sucrose (including invert sugar) or isoglucose, 5|% glucose or starch, excluding food preparations in powder form of goods of headings|0401|to 0404",True
+1901909500,"Food preparations in powder form, consisting of a blend of skimmed milk and/or whey and vegetable fats/oils, with a content of fats/oils not exceeding 30% by weight",True
+1901909933,Containing 60|% or more by weight of sucrose (including invert sugar expressed as sucrose) or isoglucose expressed as sucrose,False
+1901909990,Other,True
+1902209920,Containing rice,True
+1902209990,Other,True
+1904209100,Obtained from maize,True
+1904209500,Obtained from rice,True
+1904209900,Other,True
+1905311100,In immediate packings of a net content not exceeding 85|g,True
+1905311900,Other,True
+1905319100,Sandwich biscuits,True
+1905319900,Other,True
+1905329100,"Salted, whether or not filled",True
+1905329900,Other,True
+2001906510,Not containing added sugar,True
+2001906590,Other,True
+2001909210,Palm hearts,True
+2001909221,Other,False
+2001909711,Turnips (Brassica rapa spp. Rapa),False
+2001909721,Vine leaves,False
+2001909731,Hop shoots and similar edible parts of plants,False
+2001909754,Onions,False
+2001909781,Potatoes and products thereof,False
+2001909791,Other,False
+2002101100,In immediate packings of a net content exceeding 1|kg,True
+2002101900,In immediate packings of a net content not exceeding 1|kg,True
+2002901100,In immediate packings of a net content exceeding 1|kg,True
+2002901900,In immediate packings of a net content not exceeding 1|kg,True
+2002904920,With a dry matter content of more than 30 % by weight,True
+2002904995,Other,True
+2004109100,"In the form of flour, meal or flakes",True
+2004109900,Other,True
+2004909100,"Onions, cooked, not otherwise prepared",True
+2004909810,Mixtures,True
+2004909820,Carrots,True
+2004909830,Asparagus,True
+2004909860,Products containing meat in a proportion of 3|% up to and including 20|% by weight,True
+2004909870,Globe artichokes,True
+2004909880,Other,True
+2006003811,Sweet corn (Zea mays var. saccharata),False
+2006003881,Other,False
+2006009100,Tropical fruit and tropical nuts,True
+2006009991,Sweet corn (Zea mays var. saccharata),True
+2006009999,Other,True
+2007109100,Of tropical fruit,True
+2007109920,Fig paste,True
+2007109930,Pistachio paste,True
+2007109940,Hazelnut paste,True
+2007109950,Groundnuts paste,True
+2007109995,Other,True
+2007993315,Containing less than 70 % by weight of sugar,False
+2007993395,Other,False
+2007993515,Containing less than 70 % by weight of sugar,False
+2007993595,Other,False
+2007993901,Fig paste,False
+2007993903,Pistachio paste,False
+2007993905,Hazelnut paste,False
+2007993907,Groundnuts paste,False
+2007993916,Other,False
+2007999300,Of tropical fruit and tropical nuts,True
+2007999710,"Apple purée, including compotes",True
+2007999721,Fig paste,True
+2007999722,Pistachio paste,True
+2007999723,Hazelnut paste,True
+2007999730,"Peach or pear and mixtures thereof, in jelly of these fruits",True
+2007999732,Other,False
+2008119600,Roasted,True
+2008119800,Other,True
+2008191930,Hazelnuts,True
+2008191941,Sesamum seeds,False
+2008191950,"Groundnuts (peanuts), otherwise prepared or preserved, including mixtures",True
+2008191980,Other,True
+2008199520,Hazelnuts,True
+2008199540,"Groundnuts (peanuts), otherwise prepared or preserved, including mixtures",True
+2008199580,Other,True
+2008199930,Hazelnuts,True
+2008199941,Sesamum seeds,False
+2008199950,"Groundnuts (peanuts), otherwise prepared or preserved, including mixtures",True
+2008199980,Other,True
+2008203100,With a sugar content exceeding 19|% by weight,True
+2008203900,Other,True
+2008209000,Not containing added sugar,True
+2008207100,With a sugar content exceeding 19|% by weight,True
+2008207900,Other,True
+2008303100,"Of an actual alcoholic strength by mass not exceeding 11,85|%|mas",True
+2008303900,Other,True
+2008305510,Comminuted,True
+2008305520,"Flaked or powdered, whether or not containing starch",True
+2008305590,Other,True
+2008305911,"Grapefruit, including pomelo",False
+2008305920,Comminuted oranges and lemons,True
+2008305941,Other oranges,False
+2008305991,Other,False
+2008307100,"Grapefruit segments, including pomelos",True
+2008307510,Comminuted,True
+2008307520,"Flaked or powdered, whether or not containing starch",True
+2008307590,Other,True
+2008307911,"Grapefruit, including pomelo",False
+2008307920,Comminuted oranges and lemons,True
+2008307991,Other,False
+2008402100,"Of an actual alcoholic strength by mass not exceeding 11,85|%|mas",True
+2008402900,Other,True
+2008403100,With a sugar content exceeding 15|% by weight,True
+2008403900,Other,True
+2008405910,"Flaked or powdered, whether or not containing starch",True
+2008405990,Other,True
+2008407910,"Flaked or powdered, whether or not containing starch",True
+2008407990,Other,True
+2008503100,"Of an actual alcoholic strength by mass not exceeding 11,85|%|mas",True
+2008503900,Other,True
+2008505100,With a sugar content exceeding 15|% by weight,True
+2008505900,Other,True
+2008506910,"Flaked or powdered, whether or not containing starch",True
+2008506990,Other,True
+2008507910,"Flaked or powdered, whether or not containing starch",True
+2008507990,Other,True
+2008509811,"Of 4,5|kg or more",False
+2008509891,"Of less than 4,5|kg",False
+2008603100,"Of an actual alcoholic strength by mass not exceeding 11,85|%|mas",True
+2008603900,Other,True
+2008703100,"Of an actual alcoholic strength by mass not exceeding 11,85|%|mas",True
+2008703900,Other,True
+2008705100,With a sugar content exceeding 15|% by weight,True
+2008705900,Other,True
+2008706910,"Peaches, flaked or powdered, whether or not containing starch",True
+2008706990,Other,True
+2008707910,"Peaches, flaked or powdered, whether or not containing starch",True
+2008707990,Other,True
+2008709811,"Of 4,5|kg or more",False
+2008709821,"Of less than 4,5|kg",False
+2008803100,"Of an actual alcoholic strength by mass not exceeding 11,85|%|mas",True
+2008803900,Other,True
+2008932100,"Of an actual alcoholic strength by mass not exceeding 11,85|%|mas",True
+2008932900,Other,True
+2008939310,"Flaked or powdered, whether or not containing starch",True
+2008939390,Other,True
+2008939910,"Flaked or powdered, whether or not containing starch",True
+2008939990,Other,True
+2008970300,In immediate packings of a net content exceeding 1|kg,True
+2008970500,In immediate packings of a net content not exceeding 1|kg,True
+2008971411,Containing figs,True
+2008971415,Containing hazelnuts,True
+2008971419,Containing pistachios,True
+2008971490,Other,True
+2008971811,Containing figs,True
+2008971815,Containing hazelnuts,True
+2008971819,Containing pistachios,True
+2008971890,Other,True
+2008973411,Containing figs,True
+2008973415,Containing hazelnuts,True
+2008973419,Containing pistachios,True
+2008973490,Other,True
+2008973811,Containing figs,True
+2008973815,Containing hazelnuts,True
+2008973819,Containing pistachios,True
+2008973890,Other,True
+2008975911,Containing figs,True
+2008975915,Containing hazelnuts,True
+2008975919,Containing pistachios,True
+2008975990,Other,True
+2008977411,Containing figs,True
+2008977415,Containing hazelnuts,True
+2008977419,Containing pistachios,True
+2008977490,Other,True
+2008977811,Containing figs,True
+2008977815,Containing hazelnuts,True
+2008977819,Containing pistachios,True
+2008977890,Other,True
+2008979311,Containing figs,True
+2008979315,Containing hazelnuts,True
+2008979319,Containing pistachios,True
+2008979390,Other,True
+2008979611,Containing figs,True
+2008979615,Containing hazelnuts,True
+2008979619,Containing pistachios,True
+2008979690,Other,True
+2008979811,Containing figs,True
+2008979815,Containing hazelnuts,True
+2008979819,Containing pistachios,True
+2008979820,"Mixtures, presented in their juice, containing at least two of the following fruit: peach or pear or pineapple
+",True
+2008979890,Other,True
+2008992100,With a sugar content exceeding 13|% by weight,True
+2008992300,Other,True
+2008992810,Figs,True
+2008992890,Other,True
+2008993100,Tropical fruit,True
+2008993410,Figs,True
+2008993490,Other,True
+2008993710,Figs,True
+2008993790,Other,True
+2008993800,Tropical fruit,True
+2008994310,"Flaked or powdered, whether or not containing starch",True
+2008994390,Other,True
+2008994530,"Flaked or powdered, whether or not containing starch",True
+2008994590,Other,True
+2008994811,"Passion fruit, guavas and tamarinds",False
+2008994891,"Mangoes, mangosteens, papaws (papayas), cashew apples, lychees, jackfruit, sapodillo plums, carambola and pitahaya",False
+2008994910,"Flaked or powdered, whether or not containing starch",True
+2008994930,"Seedless boysenberry puree not containing added spirit, whether or not containing added sugar",True
+2008994960,Figs,True
+2008994970,"Blanched vine leaves of the genus Karakishmish, in brine, containing by weight:
+ 
+-|more than 6|% of salt concentration,
+ 
+-|0,1|% or more but not more than 1,4|% of acidity expressed as citric acid monohydrate and
+ 
+-|whether or not but not more than 2|000|mg/kg of sodium benzoate according CODEX STAN 192-1995
+for use in the manufacture of stuffed vine leaves with rice",True
+2008994980,Other,True
+2008995100,Ginger,True
+2008996310,"Flaked or powdered, whether or not containing starch",True
+2008996390,Other,True
+2008996791,"Flaked or powdered, whether or not containing starch",True
+2008996795,Figs,True
+2008996799,Other,True
+2008998500,"Maize (corn), other than sweetcorn (Zea mays var. saccharata)",True
+2008997820,"Flaked or powdered, whether or not containing starch",True
+2008997880,Other,True
+2008999120,"Chinese water chestnuts (Eleocharis dulcis or Eleocharis tuberosa) peeled, washed, blanched, chilled and individually quick-frozen for use in the manufacture of products of food industry for treatment other than simple repacking",True
+2008999190,Other,True
+2008999911,Vine leaves,False
+2008999920,Hop shoots and similar edible parts of plants,True
+2008999930,"Flaked or powdered, whether or not containing starch",True
+2008999935,"Frozen pulp from acai berries:
+ 
+-hydrated and pasteurised,
+ 
+-separated from the kernels by the addition of water,
+ 
+-with a Brix value of less than 6, and
+ 
+-with a sugar content of less than 5,6 %",True
+2008999940,"Seedless boysenberry puree not containing added spirit, whether or not containing added sugar",True
+2008999950,"Watermelon (egusi, Citrullus spp.) seeds and derived products",True
+2008999960,Figs,True
+2008999979,Peppers (sweet or other than sweet) (Capsicum spp.),True
+2008999980,"Curry leaves (Bergera koenigii, Syn.: Murraya koenigii) (frozen)",True
+2008999990,Other,True
+2009111910,In containers of two litres or less,True
+2009111990,Other,True
+2009119911,"Having a degree of concentration of up to 50!o! Brix, in containers of two litres or less, excluding blood orange juice",False
+2009119992,Other,False
+2009191911,In containers of two litres or less,False
+2009191991,Other,False
+2009199811,In containers of two litres or less,False
+2009199891,Other,False
+2009291910,Powdered,True
+2009291990,Other,True
+2009299910,Powdered,True
+2009299990,Other,True
+2009311911,Lemon juice,False
+2009311991,Other,False
+2009315910,Powdered,True
+2009315990,Other,True
+2009319910,Powdered,True
+2009319990,Other,True
+2009391910,Powdered,True
+2009391990,Other,True
+2009393911,Lemon juice,False
+2009393991,Other,False
+2009395510,Powdered,True
+2009395590,Other,True
+2009395910,Powdered,True
+2009395990,Other,True
+2009399510,Powdered,True
+2009399590,Other,True
+2009399910,Powdered,True
+2009399990,Other,True
+2009419210,Of a value exceeding €|30|per 100|kg net weight,False
+2009419260,Other,False
+2009419910,Powdered,True
+2009419970,Other,False
+2009491910,Powdered,True
+2009491990,Other,True
+2009499310,Powdered,True
+2009499390,Other,True
+2009499910,Powdered,True
+2009499990,Other,True
+2009691910,"For the production of grape juice and/or non-wine sector products such as non-alcoholic drinks, jams and sauces",True
+2009691990,Other,True
+2009691910,"For the production of grape juice and/or non-wine sector products such as non-alcoholic drinks, jams and sauces",True
+2009691990,Other,True
+2009719910,Powdered,True
+2009719990,Other,True
+2009791910,Powdered,True
+2009791990,Other,True
+2009799810,Not containing added sugar,False
+2009799870,Other,False
+2009811910,Powdered,True
+2009811990,Other,True
+2009815910,Powdered,True
