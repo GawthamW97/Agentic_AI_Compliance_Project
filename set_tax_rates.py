@@ -37,28 +37,22 @@ embeddings = OpenAIEmbeddings()
 if os.path.exists(db_name):
     Chroma(persist_directory=db_name, embedding_function=embeddings).delete_collection()
 
-# Create vectorstore
 
 vectorstore = Chroma.from_documents(documents=chunks, embedding=embeddings, persist_directory=db_name)
 print(f"Vectorstore created with {vectorstore._collection.count()} documents")
 
-# Get one vector and find how many dimensions it has
 
 collection = vectorstore._collection
 sample_embedding = collection.get(limit=1, include=["embeddings"])["embeddings"][0]
 dimensions = len(sample_embedding)
 print(f"The vectors have {dimensions:,} dimensions")
 
-# create a new Chat with OpenAI
 llm = ChatOpenAI(temperature=0.7, model_name=MODEL)
 
-# set up the conversation memory for the chat
 memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
 
-# the retriever is an abstraction over the VectorStore that will be used during RAG
 retriever = vectorstore.as_retriever()
 
-# putting it together: set up the conversation chain with the GPT 4o-mini LLM, the vector store and memory
 conversation_chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=retriever, memory=memory)
 
 def get_vat_rate(country: str):
@@ -83,4 +77,4 @@ sales_df["vat_rate"] = vat_rates
 sales_df["amount_with_vat"] = sales_df["OBS_VALUE"] * (1 + sales_df["vat_rate"]/100)
 
 sales_df.to_csv("sales_with_vat.csv", index=False)
-print("✅ Sales dataset enriched with VAT and saved as sales_with_vat.csv")
+print("Sales dataset enriched with VAT and saved as sales_with_vat.csv")
