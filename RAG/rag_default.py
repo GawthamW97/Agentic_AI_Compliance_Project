@@ -33,8 +33,6 @@ def get_hs_candidates(code_desc, k=5,collection="hs_codes"):
     return [{"rank": i+1, "hs_code": hs_ids[i], "description": docs[i], "similarity": similarities[i]} 
             for i in range(len(hs_ids))]
 
-
-
 def classify_with_llm(code_desc, collection,model="gpt-4o-mini"):
     candidates = get_hs_candidates(code_desc,collection=collection)
     context = "\n".join([
@@ -90,4 +88,3 @@ def classify_code_without_llm_v2(code_desc, k=5, collection="hs_codes"):
             "hybrid_score": c["hybrid_score"]
         })
     return results
-

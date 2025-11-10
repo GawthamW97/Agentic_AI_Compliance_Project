@@ -316,7 +316,6 @@ def evaluate_rag_pipeline_hybrid(
         "hierarchical_metrics": hier_metrics
     }
 
-
 def compute_hierarchical_metrics(y_true, y_pred):
     levels = [2, 4, 6]
     results = {}
