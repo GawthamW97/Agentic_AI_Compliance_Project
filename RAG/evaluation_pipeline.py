@@ -2,8 +2,7 @@ import pandas as pd
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
 from openai import OpenAI
 from dotenv import load_dotenv
-from rag_pipeline import rag_only,rag_with_llm
-from rag_default import classify_code_without_llm_v2
+from rag_pipeline import rag_only,rag_only_hierarchy,rag_with_llm,rag_with_llm_hierarchy
 import chromadb
 import os
 import json
@@ -16,16 +15,17 @@ warnings.filterwarnings(
 )
 
 def evaluate_rag_pipeline(
+    rag_func,
     ground_truth_csv,
     k=3,
     confidence_threshold=None,
     output_file="./output/rag_predictions.csv",
-    collection="hs_codes"
+    collection="hs_codes",
 ):
 
     df = pd.read_csv(ground_truth_csv)
 
-    # df = df.sample(n=1000, random_state=42)
+    df = df.sample(n=1000, random_state=42)
     y_true = []
     y_pred_top1 = []
     top_k_correct = 0
@@ -37,7 +37,7 @@ def evaluate_rag_pipeline(
         desc = str(row["description"])
         true_code = str(row["hscode"])
 
-        results = rag_only(desc)
+        results = rag_func(desc)
         top1 = results[0]
 
         is_low_confidence = (
@@ -125,6 +125,7 @@ def evaluate_rag_pipeline(
     }
 
 def evaluate_rag_llm_pipeline(
+    rag_func,
     ground_truth_csv,
     k=5,
     model="gpt-4o-mini",
@@ -133,7 +134,7 @@ def evaluate_rag_llm_pipeline(
 ):
 
     df = pd.read_csv(ground_truth_csv)
-    # df = df.sample(n=1000,random_state=42)
+    df = df.sample(n=1000,random_state=42)
     y_true = []
     y_pred = []
     top_k_correct = 0
@@ -145,7 +146,7 @@ def evaluate_rag_llm_pipeline(
         desc = str(row["description"])
         true_code = str(row["hscode"])
 
-        pred_code, llm_raw, candidates = rag_with_llm(desc)
+        pred_code, llm_raw, candidates = rag_func(desc)
 
         retrieved_codes = [c["hs_code"] for c in candidates]
         if true_code in retrieved_codes:
@@ -192,129 +193,129 @@ def evaluate_rag_llm_pipeline(
         "total_samples": total
     }
 
-def evaluate_rag_pipeline_hybrid(
-    ground_truth_csv,
-    k=3,
-    confidence_threshold=None,
-    output_file="./output/rag_predictions_hybrid.csv",
-    retriever_func=None,   
-    alpha=0.7            
-):
+# def evaluate_rag_pipeline_hybrid(
+#     ground_truth_csv,
+#     k=3,
+#     confidence_threshold=None,
+#     output_file="./output/rag_predictions_hybrid.csv",
+#     retriever_func=None,   
+#     alpha=0.7            
+# ):
 
-    df = pd.read_csv(ground_truth_csv)
-    y_true, y_pred_top1 = [], []
-    top_k_correct, total = 0, len(df)
-    prediction_logs = []
+#     df = pd.read_csv(ground_truth_csv)
+#     y_true, y_pred_top1 = [], []
+#     top_k_correct, total = 0, len(df)
+#     prediction_logs = []
 
-    for idx, row in df.iterrows():
-        desc = str(row["description"])
-        true_code = str(row["hscode"])
+#     for idx, row in df.iterrows():
+#         desc = str(row["description"])
+#         true_code = str(row["hscode"])
 
-        results = retriever_func(desc, k=k)
-        top1 = results[0]
+#         results = retriever_func(desc, k=k)
+#         top1 = results[0]
 
-        if "hybrid_score" in top1:
-            confidence = top1["hybrid_score"]
-        elif "semantic_score" in top1 and "lexical_score" in top1:
-            confidence = alpha * top1["semantic_score"] + (1 - alpha) * top1["lexical_score"]
-        else:
-            confidence = top1.get("similarity", 0)
+#         if "hybrid_score" in top1:
+#             confidence = top1["hybrid_score"]
+#         elif "semantic_score" in top1 and "lexical_score" in top1:
+#             confidence = alpha * top1["semantic_score"] + (1 - alpha) * top1["lexical_score"]
+#         else:
+#             confidence = top1.get("similarity", 0)
 
-        # Confidence threshold check
-        is_low_confidence = (
-            confidence_threshold is not None and confidence < confidence_threshold
-        )
+#         # Confidence threshold check
+#         is_low_confidence = (
+#             confidence_threshold is not None and confidence < confidence_threshold
+#         )
 
-        if is_low_confidence:
-            pred_code = "UNCERTAIN"
-        else:
-            pred_code = top1.get("hs_code", top1.get("id", "UNKNOWN"))
+#         if is_low_confidence:
+#             pred_code = "UNCERTAIN"
+#         else:
+#             pred_code = top1.get("hs_code", top1.get("id", "UNKNOWN"))
 
-        y_true.append(true_code)
-        y_pred_top1.append(pred_code)
+#         y_true.append(true_code)
+#         y_pred_top1.append(pred_code)
 
-        hs_codes_k = [r.get("hs_code", r.get("id")) for r in results]
-        if true_code in hs_codes_k:
-            top_k_correct += 1
+#         hs_codes_k = [r.get("hs_code", r.get("id")) for r in results]
+#         if true_code in hs_codes_k:
+#             top_k_correct += 1
 
-        def safe_round(value):
-            try:
-                return round(float(value), 4)
-            except:
-                return None
+#         def safe_round(value):
+#             try:
+#                 return round(float(value), 4)
+#             except:
+#                 return None
 
-        prediction_logs.append({
-            "index": idx,
-            "product_description": desc,
-            "true_hscode": true_code,
-            "predicted_hscode": pred_code,
-            "semantic_score": safe_round(top1.get("semantic_score")),
-            "lexical_score": safe_round(top1.get("lexical_score")),
-            "hybrid_score": safe_round(top1.get("hybrid_score")),
-            "confidence": safe_round(confidence),
-            "is_low_confidence": is_low_confidence,
-            "top_k_candidates": json.dumps([
-                {
-                    "rank": r.get("rank"),
-                    "hs_code": r.get("hs_code", r.get("id")),
-                    "semantic_score": safe_round(r.get("semantic_score")),
-                    "lexical_score": safe_round(r.get("lexical_score")),
-                    "hybrid_score": safe_round(r.get("hybrid_score")),
-                }
-                for r in results
-            ])
-        })
+#         prediction_logs.append({
+#             "index": idx,
+#             "product_description": desc,
+#             "true_hscode": true_code,
+#             "predicted_hscode": pred_code,
+#             "semantic_score": safe_round(top1.get("semantic_score")),
+#             "lexical_score": safe_round(top1.get("lexical_score")),
+#             "hybrid_score": safe_round(top1.get("hybrid_score")),
+#             "confidence": safe_round(confidence),
+#             "is_low_confidence": is_low_confidence,
+#             "top_k_candidates": json.dumps([
+#                 {
+#                     "rank": r.get("rank"),
+#                     "hs_code": r.get("hs_code", r.get("id")),
+#                     "semantic_score": safe_round(r.get("semantic_score")),
+#                     "lexical_score": safe_round(r.get("lexical_score")),
+#                     "hybrid_score": safe_round(r.get("hybrid_score")),
+#                 }
+#                 for r in results
+#             ])
+#         })
 
 
-    valid_idx = [i for i, p in enumerate(y_pred_top1) if p != "UNCERTAIN"]
-    if valid_idx:
-        y_true_filtered = [y_true[i] for i in valid_idx]
-        y_pred_filtered = [y_pred_top1[i] for i in valid_idx]
-    else:
-        y_true_filtered = y_true
-        y_pred_filtered = y_pred_top1
+#     valid_idx = [i for i, p in enumerate(y_pred_top1) if p != "UNCERTAIN"]
+#     if valid_idx:
+#         y_true_filtered = [y_true[i] for i in valid_idx]
+#         y_pred_filtered = [y_pred_top1[i] for i in valid_idx]
+#     else:
+#         y_true_filtered = y_true
+#         y_pred_filtered = y_pred_top1
 
-    acc = accuracy_score(y_true_filtered, y_pred_filtered)
-    prec = precision_score(y_true_filtered, y_pred_filtered, average='macro', zero_division=0)
-    rec = recall_score(y_true_filtered, y_pred_filtered, average='macro', zero_division=0)
-    f1 = f1_score(y_true_filtered, y_pred_filtered, average='macro', zero_division=0)
-    topk_acc = top_k_correct / total
+#     acc = accuracy_score(y_true_filtered, y_pred_filtered)
+#     prec = precision_score(y_true_filtered, y_pred_filtered, average='macro', zero_division=0)
+#     rec = recall_score(y_true_filtered, y_pred_filtered, average='macro', zero_division=0)
+#     f1 = f1_score(y_true_filtered, y_pred_filtered, average='macro', zero_division=0)
+#     topk_acc = top_k_correct / total
 
-    print("\n========== Evaluation Results ==========")
-    print(f"Total samples: {total}")
-    print(f"Top-1 Accuracy: {acc:.4f}")
-    print(f"Top-{k} Accuracy: {topk_acc:.4f}")
-    print(f"Precision (macro): {prec:.4f}")
-    print(f"Recall (macro): {rec:.4f}")
-    print(f"F1 Score (macro): {f1:.4f}")
+#     print("\n========== Evaluation Results ==========")
+#     print(f"Total samples: {total}")
+#     print(f"Top-1 Accuracy: {acc:.4f}")
+#     print(f"Top-{k} Accuracy: {topk_acc:.4f}")
+#     print(f"Precision (macro): {prec:.4f}")
+#     print(f"Recall (macro): {rec:.4f}")
+#     print(f"F1 Score (macro): {f1:.4f}")
 
-    hier_metrics = compute_hierarchical_metrics(y_true_filtered, y_pred_filtered)
+#     hier_metrics = compute_hierarchical_metrics(y_true_filtered, y_pred_filtered)
 
-    print("\n========== Hierarchical (Aggregated) Metrics ==========")
-    for level, vals in hier_metrics.items():
-        print(f"{level.upper()} → "
-              f"Acc: {vals['accuracy']:.4f}, "
-              f"Prec: {vals['precision']:.4f}, "
-              f"Rec: {vals['recall']:.4f}, "
-              f"F1: {vals['f1']:.4f}")
+#     print("\n========== Hierarchical (Aggregated) Metrics ==========")
+#     for level, vals in hier_metrics.items():
+#         print(f"{level.upper()} → "
+#               f"Acc: {vals['accuracy']:.4f}, "
+#               f"Prec: {vals['precision']:.4f}, "
+#               f"Rec: {vals['recall']:.4f}, "
+#               f"F1: {vals['f1']:.4f}")
 
-    if confidence_threshold:
-        print(f"Confidence threshold applied: {confidence_threshold}")
-        print(f"Samples classified as UNCERTAIN: {total - len(valid_idx)}")
+#     if confidence_threshold:
+#         print(f"Confidence threshold applied: {confidence_threshold}")
+#         print(f"Samples classified as UNCERTAIN: {total - len(valid_idx)}")
 
-    pd.DataFrame(prediction_logs).to_csv(output_file, index=False)
-    print(f"\nPredictions saved to: {output_file}")
+#     pd.DataFrame(prediction_logs).to_csv(output_file, index=False)
+#     print(f"\nPredictions saved to: {output_file}")
 
-    return {
-        "top1_accuracy": acc,
-        "topk_accuracy": topk_acc,
-        "precision": prec,
-        "recall": rec,
-        "f1": f1,
-        "total_samples": total,
-        "classified_samples": len(valid_idx),
-        "hierarchical_metrics": hier_metrics
-    }
+#     return {
+#         "top1_accuracy": acc,
+#         "topk_accuracy": topk_acc,
+#         "precision": prec,
+#         "recall": rec,
+#         "f1": f1,
+#         "total_samples": total,
+#         "classified_samples": len(valid_idx),
+#         "hierarchical_metrics": hier_metrics
+#     }
 
 def compute_hierarchical_metrics(y_true, y_pred):
     levels = [2, 4, 6]
@@ -343,16 +344,22 @@ def truncate_code(code, digits=2):
         code = str(code)
     return code[:digits]
 
-# evaluate_rag_pipeline("./dataset/harmonized-system.csv",3,collection="hs_codes_hierarchy")
-# evaluate_rag_pipeline("./dataset/test_hs_codes.csv",3)
-# evaluate_rag_pipeline("./dataset/test_hs_codes.csv",3,collection="hs_codes_hierarchy")
-evaluate_rag_pipeline("./dataset/synthetic_product_descriptions.csv",3)
-# evaluate_rag_pipeline("./dataset/synthetic_product_descriptions.csv",3,collection="hs_codes_hierarchy")
+# Evaluation with Canonical description (Ground Truth)
+evaluate_rag_pipeline(rag_only,"./dataset/harmonized-system.csv",10)
+evaluate_rag_pipeline(rag_only_hierarchy,"./dataset/harmonized-system.csv",10)
+# evaluate_rag_llm_pipeline(rag_with_llm,"./dataset/harmonized-system.csv",10)
+# evaluate_rag_llm_pipeline(rag_with_llm_hierarchy,"./dataset/harmonized-system.csv",10)
 
-# evaluate_rag_llm_pipeline("./dataset/test_hs_codes.csv",3)
-# evaluate_rag_llm_pipeline("./dataset/test_hs_codes.csv",3,collection="hs_codes_hierarchy")
-# evaluate_rag_llm_pipeline("./dataset/synthetic_product_descriptions.csv",3)
-# evaluate_rag_llm_pipeline("./dataset/synthetic_product_descriptions.csv",3,collection="hs_codes_hierarchy")
+# Evaluation with separate data 
+# evaluate_rag_pipeline(rag_only,"./dataset/test_hs_codes.csv",10)
+# evaluate_rag_pipeline(rag_only_hierarchy,"./dataset/test_hs_codes.csv",10)
+# evaluate_rag_llm_pipeline(rag_with_llm,"./dataset/test_hs_codes.csv",10)
+# evaluate_rag_llm_pipeline(rag_with_llm_hierarchy,"./dataset/test_hs_codes.csv",10)
 
-# evaluate_rag_pipeline_hybrid("./dataset/test_hs_codes.csv",3,retriever_func=classify_code_without_llm_v2)
+# Evaluation with synthetic data 
+# evaluate_rag_pipeline(rag_only,"./dataset/synthetic_product_descriptions.csv",10)
+# evaluate_rag_pipeline(rag_only_hierarchy,"./dataset/synthetic_product_descriptions.csv",10)
+# evaluate_rag_llm_pipeline(rag_with_llm,"./dataset/synthetic_product_descriptions.csv",10)
+# evaluate_rag_llm_pipeline(rag_with_llm_hierarchy,"./dataset/synthetic_product_descriptions.csv",10)
+
 
