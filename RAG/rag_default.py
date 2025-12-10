@@ -1,12 +1,11 @@
 from openai import OpenAI
 from dotenv import load_dotenv
-from rag_hybrid import hybrid_retrieve
 import chromadb
 import os
 import re
 
 load_dotenv()
-client = OpenAI()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 global chroma_client
 
 def setChromaClient(path):
@@ -75,16 +74,3 @@ def classify_code_without_llm(code_desc, k=5, collection="hs_codes"):
         })
     return results
 
-def classify_code_without_llm_v2(code_desc, k=5, collection="hs_codes"):
-    results = []
-    candidates = hybrid_retrieve(code_desc, k=k, alpha=0.7)
-    for c in candidates:
-        results.append({
-            "rank": c["rank"],
-            "hs_code": c["id"],
-            "hs_description": c["doc"],
-            "semantic_score": c["semantic_score"],
-            "lexical_score": c["lexical_score"],
-            "hybrid_score": c["hybrid_score"]
-        })
-    return results

@@ -24,129 +24,144 @@ collections = {
     6: chroma_client.get_collection("hs_codes_6d", embedding_function=embed_fn),
 }
 
-def hierarchical_retrieval(
-    product_desc,
-    k2=3,   # chapters
-    k4=5,   # headings per chapter
-    k6=8    # subheadings per heading
-):
-    """
-    Retrieve HS candidates hierarchically:
-      Level 1: 2-digit chapters
-      Level 2: 4-digit headings (filtered by parent_code)
-      Level 3: 6-digit subheadings (filtered by parent_code)
-
-    Returns a dict with:
-      - chapters:   [(code, desc)]
-      - headings:   [(code, desc, parent_chapter)]
-      - subheadings:[(code, desc, parent_heading, parent_chapter)]
-    """
-
-    # --- Level 1: 2-digit chapters ---
-    res2 = collections[2].query(
+def retrieve_6digit_first(product_desc, k6=20):
+    # --- Step 1: Retrieve 6-digit candidates ---
+    res6 = collections[6].query(
         query_texts=[product_desc],
-        n_results=max(k2, 2)
+        n_results=k6,
+        include=["documents", "metadatas", "distances"]
     )
-    chapters = [
-        (cid, meta["description"])
-        for cid, meta in zip(res2["ids"][0], res2["metadatas"][0])
-    ]
 
-    # --- Level 2: 4-digit headings ---
-    headings = []
-    for ch_id, _ in chapters:
-        res4 = collections[4].query(
-            query_texts=[product_desc],
-            where={"parent_code": ch_id},
-            n_results=max(k4, 2)
-        )
-        for hid, meta in zip(res4["ids"][0], res4["metadatas"][0]):
-            headings.append((hid, meta["description"], ch_id))
+    six_candidates = []
+    for sid, doc, meta, dist in zip(
+        res6["ids"][0],
+        res6["documents"][0],
+        res6["metadatas"][0],
+        res6["distances"][0]
+    ):
+        six_candidates.append({
+            "hs6": sid,
+            "desc6": meta.get("description", doc),
+            "sim6": 1 - dist
+        })
 
-    # --- Level 3: 6-digit subheadings ---
-    subheadings = []
-    # limit branching: only expand first k4 headings total
-    for hd_id, _, parent_ch in headings[:k4]:
-        res6 = collections[6].query(
-            query_texts=[product_desc],
-            where={"parent_code": hd_id},
-            n_results=max(k6, 2)
-        )
-        for sid, meta in zip(res6["ids"][0], res6["metadatas"][0]):
-            subheadings.append((sid, meta["description"], hd_id, parent_ch))
+    # --- Step 2: Derive 4-digit parents ---
+    unique_4 = sorted({c["hs6"][:4] for c in six_candidates})
+    four_candidates = []
+    for code4 in unique_4:
+        try:
+            res4 = collections[4].get([code4])
+            if res4["metadatas"]:
+                four_candidates.append({
+                    "hs4": code4,
+                    "desc4": res4["metadatas"][0]["description"]
+                })
+        except:
+            pass  # ignore missing headings
+
+    # --- Step 3: Derive 2-digit parents (chapters) ---
+    unique_2 = sorted({c["hs6"][:2] for c in six_candidates})
+    two_candidates = []
+    for code2 in unique_2:
+        try:
+            res2 = collections[2].get([code2])
+            if res2["metadatas"]:
+                two_candidates.append({
+                    "hs2": code2,
+                    "desc2": res2["metadatas"][0]["description"]
+                })
+        except:
+            pass
 
     return {
-        "chapters": chapters,
-        "headings": headings,
-        "subheadings": subheadings
+        "chapters": two_candidates,
+        "headings": four_candidates,
+        "subheadings": six_candidates
     }
 
-def agent_reason(product_desc, tree):
+def agent_reason(product_desc, tree, max6=10, max4=5, max2=3):
     """
-    LLM reasoning on top of hierarchical retrieval.
-    Prompt is trimmed to avoid huge contexts.
+    LLM reasoning on top of 6-digit-first hierarchical retrieval.
     """
 
-    # Limit candidates passed to the model
-    chapters = tree["chapters"][:3]
-    headings = tree["headings"][:5]
+    # trim lists for prompt safety
+    subs = tree["subheadings"][:max6]
+    heads = tree["headings"][:max4]
+    chaps = tree["chapters"][:max2]
 
-    # Deduplicate subheading codes while preserving order
-    seen = set()
-    sub_clean = []
-    for sid, desc, hd, ch in tree["subheadings"]:
-        if sid not in seen:
-            sub_clean.append((sid, desc, hd, ch))
-            seen.add(sid)
-    subheadings = sub_clean[:10]
-
-    chapters_str = "\n".join([f"- {cid}: {desc}" for cid, desc in chapters])
-    headings_str = "\n".join([f"- {hid}: {desc}" for hid, desc, ch in headings])
-    subs_str = "\n".join([f"- {sid}: {desc}" for sid, desc, hd, ch in subheadings])
+    chap_str = "\n".join([f"- {c['hs2']}: {c['desc2']}" for c in chaps])
+    head_str = "\n".join([f"- {h['hs4']}: {h['desc4']}" for h in heads])
+    sub_str = "\n".join([f"{i+1}. {s['hs6']} (sim={s['sim6']:.3f}): {s['desc6']}" 
+                         for i, s in enumerate(subs)])
 
     prompt = f"""
-You are a senior customs classification expert.
+            You are a senior customs classification expert.
 
-Classify the following product into the most appropriate 6-digit HS code.
+            PRODUCT:
+            \"{product_desc}\"
 
-PRODUCT:
-"{product_desc}"
+            We retrieved the TOP HS code candidates first (highest granularity).
+            Based on hierarchical structure, their parent HEADINGS (4-digit) and CHAPTERS (2-digit)
+            are derived below.
 
-CANDIDATE HIERARCHY:
+            2-DIGIT CHAPTERS:
+            {chap_str}
 
-CHAPTERS (2-digit):
-{chapters_str}
+            4-DIGIT HEADINGS:
+            {head_str}
 
-HEADINGS (4-digit):
-{headings_str}
+            6-DIGIT SUBHEADINGS (candidates):
+            {sub_str}
 
-SUBHEADINGS (6-digit):
-{subs_str}
+            TASK:
+            1. Choose the code from the list above. The code can only be of length 5 or 6.
+            2. Justify the choice using: product meaning, heading consistency, and chapter relevance.
+            3. Provide a confidence score between 0 and 1.
+            4. Also, use your own semantic understandings and knowledge of Harmonized System Codes to
+            assign the correct code. 
+            5. Use the 2-DIGIT CHAPTERS and 4-DIGIT HEADINGS as a context to enrich the relevance 
+            of the HS code for the description that required HS Code prediction.
+            6. If there are any punctuations in the HS Code, remove the punctuation and persist the entire code.
 
-TASK:
-1. Choose a single best 6-digit HS code from the subheading list above.
-2. Justify your choice based on the hierarchy (chapter → heading → subheading).
-3. Provide a confidence score between 0 and 1.
+            Respond in JSON only:
 
-Respond in JSON ONLY:
-
-{{
-  "final_code": "XXXXXX",
-  "justification": "…",
-  "confidence": 0.0
-}}
-"""
+            {{
+            "final_code": "XXXXXX",
+            "justification": "…",
+            "confidence": 0.0
+            }}
+            """
 
     resp = client.responses.create(
         model="gpt-4o-mini",
         input=prompt,
-        temperature=0.2
+        temperature=0.1
     )
 
     try:
-        return json.loads(resp.output_text)
+        ans = json.loads(resp.output_text)
+        final_code = ans.get("final_code")
+        
+        # If LLM returned invalid code → fallback
+        if final_code is None or not final_code.isdigit():
+            fallback_code = tree["subheadings"][0]["hs6"]
+            return {
+                "final_code": fallback_code,
+                "justification": "Fallback to highest-ranked retrieval (invalid model output).",
+                "confidence": 0.0,
+            }
+        
+        return ans
+
     except Exception:
-        return {"final_code": None, "justification": "Invalid JSON", "confidence": 0.0}
+        # Hard fallback
+        fallback_code = tree["subheadings"][0]["hs6"]
+        return {
+            "final_code": fallback_code,
+            "justification": "Fallback due to invalid JSON.",
+            "confidence": 0.0
+        }
+    
 
 def reflect_and_correct(
     product_desc,
@@ -155,54 +170,57 @@ def reflect_and_correct(
     confidence_threshold=0.75,
     max_reflections=1
 ):
-    """
-    Simple reflection loop:
-      - If confidence < threshold, reflect once using the same candidates.
-      - Otherwise, accept the initial answer.
-    """
-
     answer = first_answer
 
-    if answer.get("final_code") is None:
-        # Try at least once if initial parsing failed
-        low_conf = True
-    else:
-        low_conf = answer.get("confidence", 0.0) < confidence_threshold
+    def fallback():
+        return {
+            "final_code": tree["subheadings"][0]["hs6"],
+            "justification": "Fallback after low-confidence reflection.",
+            "confidence": 0.0
+        }
+
+    # If first answer has no code → fallback immediately
+    if answer.get("final_code") is None or not str(answer["final_code"]).isdigit():
+        return fallback()
+    
+    low_conf = (
+        answer.get("final_code") is None or
+        answer.get("confidence", 0.0) < confidence_threshold
+    )
 
     if not low_conf or max_reflections <= 0:
         return answer
 
-    # Build candidate code list
-    sub_codes = []
-    for sid, _, _, _ in tree["subheadings"]:
-        if sid not in sub_codes:
-            sub_codes.append(sid)
+    sub_codes = [s["hs6"] for s in tree["subheadings"]]
 
-    if not sub_codes:
-        return answer
-
-    # --- Single reflection attempt ---
     reflect_prompt = f"""
-You previously classified this product with low confidence.
+            You are an expert in classifying the Harmonized System Codes.
+            You classified with low confidence.
 
-PRODUCT:
-"{product_desc}"
+            PRODUCT:
+            \"{product_desc}\"
 
-YOUR PREVIOUS ANSWER:
-{json.dumps(answer)}
+            PREVIOUS ANSWER:
+            {json.dumps(answer)}
 
-VALID 6-DIGIT CANDIDATES:
-{sub_codes}
+            VALID 6-DIGIT CANDIDATES:
+            {sub_codes}
 
-Reflect on your previous reasoning and choose the BEST code from the candidate list ONLY.
-Return JSON ONLY in the format:
+            1. Use your own semantic understandings and knowledge of Harmonized System Codes to
+            assign the correct code. 
+            2. Use the 2-DIGIT CHAPTERS and 4-DIGIT HEADINGS as a context to enrich the relevance 
+            of the HS code for the description that required HS Code prediction.
+            3. If there are any punctuations in the HS Code, remove the punctuation and persist the entire code.
 
-{{
-  "final_code": "XXXXXX",
-  "justification": "…",
-  "confidence": 0.0
-}}
-"""
+            Reflect and choose the best option.
+            Return JSON:
+
+            {{
+            "final_code": "XXXXXX",
+            "justification": "…",
+            "confidence": 0.0
+            }}
+            """
 
     resp = client.responses.create(
         model="gpt-4o-mini",
@@ -211,34 +229,37 @@ Return JSON ONLY in the format:
     )
 
     try:
-        new_answer = json.loads(resp.output_text)
-        return new_answer
-    except Exception:
-        return answer
+        new = json.loads(resp.output_text)
+        code = new.get("final_code")
 
-def agentic_hs_classifier(
-    product_desc,
-    k2=3,
-    k4=5,
-    k6=8,
-    confidence_threshold=0.75
-):
-    """
-    Full Agentic HS classification:
-      1. Hierarchical retrieval
-      2. LLM reasoning
-      3. Optional reflection
-    """
+        # validate parsed code
+        if code is None or not code.isdigit():
+            return fallback()
 
-    tree = hierarchical_retrieval(product_desc, k2=k2, k4=k4, k6=k6)
+        return new
+
+    except:
+        return fallback()
+    
+
+def agentic_hs_classifier(product_desc, k6=20, confidence_threshold=0.75):
+    tree = retrieve_6digit_first(product_desc, k6=k6)
+
     initial_answer = agent_reason(product_desc, tree)
+    
     final_answer = reflect_and_correct(
         product_desc,
         tree,
         initial_answer,
         confidence_threshold=confidence_threshold,
-        max_reflections=1  # keep latency under control
+        max_reflections=1
     )
+
+    # FINAL SAFETY
+    if final_answer["final_code"] is None or not str(final_answer["final_code"]).isdigit():
+        final_answer["final_code"] = tree["subheadings"][0]["hs6"]
+        final_answer["confidence"] = 0.0
+        final_answer["justification"] += " | Final fallback used."
 
     return {
         "product": product_desc,

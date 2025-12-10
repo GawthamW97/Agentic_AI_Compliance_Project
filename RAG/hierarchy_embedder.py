@@ -37,17 +37,18 @@ def build_metadata(row):
         "full_path": f"{row['section']} → {row['parent']} → {row['hscode']}"
     }
 
-# Embed and insert per level
-for level in [2, 4, 6]:
-    subset = df[df["level"] == level]
-    col = collections[level]
-    for _, row in tqdm(subset.iterrows(), total=len(subset), desc=f"Embedding level {level}"):
-        text = f"HS Code {row['hscode']}: {row['description']}"
-        metadata = build_metadata(row)
-        col.add(
-            documents=[text],
-            metadatas=[metadata],
-            ids=[str(row["hscode"])]
-        )
+def create_hierarchical_collection():
+    # Embed and insert per level
+    for level in [2, 4, 6]:
+        subset = df[df["level"] == level]
+        col = collections[level]
+        for _, row in tqdm(subset.iterrows(), total=len(subset), desc=f"Embedding level {level}"):
+            text = f"HS Code {row['hscode']}: {row['description']}"
+            metadata = build_metadata(row)
+            col.add(
+                documents=[text],
+                metadatas=[metadata],
+                ids=[str(row["hscode"])]
+            )
 
-print("Hierarchical embeddings stored in Chroma.")
+    print("Hierarchical embeddings stored in Chroma.")

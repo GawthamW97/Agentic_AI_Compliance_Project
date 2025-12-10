@@ -33,6 +33,10 @@ def retrieve_candidates(product_desc,collection, k=10):
             for i in range(len(hs_ids))]
 
 def reasoning_module(product_desc, candidates):
+    '''
+    This agentic flow is created to assess and select the suitable HS code from the 
+    bundle of retrieval that was queried from ChromaDB
+    '''
     context = "\n".join([f"{c['rank']}. {c['hs_code']}: {c['description']} (similarity: {c['similarity']:.4f}" for i, c in enumerate(candidates)])
     prompt = f"""
     You are a customs classification expert.
@@ -42,6 +46,10 @@ def reasoning_module(product_desc, candidates):
     
     Also, use your own semantic understandings and knowledge of Harmonized System Codes to
     assign the correct code.
+
+    The HS code should only have 5 or 6 digit codes. 
+    It cannot be of 4-digit or 2-digit.
+    If there are any punctuations in the HS Code, remove the punctuation and persist the entire code.
 
     Select the single most appropriate HS code and briefly explain why.
     Respond with plain JSON only, no code blocks or additional text:
@@ -59,24 +67,24 @@ def reasoning_module(product_desc, candidates):
     return output
 
 def validate_classification(result, candidates):
-    """
-    Deterministic checks (you can expand with real compliance rules).
-    Example rules:
-      - HS code must exist in candidates.
-      - Check that product semantics align with HS section (Animals, Machines, etc.).
-    """
+    '''
+    Validate if the HS code selected by the agent exist within the retrieval bundle 
+    This will make sure the HS code is always a valid one in case the agent hallucinates
+    '''
     code = result["selected_code"]
     if code not in [c["hs_code"] for c in candidates]:
         return False, "Code not in retrieved candidates."
-    # if code.startswith("95") and "animal" in result["justification"].lower():
-    #     return False, "Conflict between 'animal' product and 'toy' HS section."
     return True, "Valid classification."
 
 def reflective_correction(product_desc, candidates, prev_result, error_msg):
-    """
-    Ask the LLM to self-reflect and correct if validation failed.
-    """
+    '''
+    This agentic flow is created to reflect and check the suitable HS code in case an invalid 
+    HS code was selected by the reasoning agent.
+    '''
+        
     reflection_prompt = f"""
+    You are an expert in HS Code classification.
+    
     The previous classification attempt failed validation:
     Error: {error_msg}
     Product description: "{product_desc}"
@@ -86,6 +94,10 @@ def reflective_correction(product_desc, candidates, prev_result, error_msg):
 
     Also, use your own semantic understandings and knowledge of Harmonized System Codes to
     assign the correct code. 
+
+    The HS code should only have 5 or 6 digit codes. 
+    It cannot be of 4-digit or 2-digit.
+    If there are any punctuations in the HS Code, remove the punctuation and persist the entire code.
 
     Reflect on your reasoning and provide a corrected HS code and justification.
     Respond with plain JSON only, no code blocks or additional text:
@@ -102,9 +114,9 @@ def reflective_correction(product_desc, candidates, prev_result, error_msg):
         output = {"selected_code": "UNKNOWN", "justification": resp.choices[0].message.content}
     return output
 
-def agentic_classify(product_desc,collection):
+def agentic_classify(product_desc,collection,k):
     start = time.time()
-    candidates = retrieve_candidates(product_desc,collection)
+    candidates = retrieve_candidates(product_desc,collection,k)
     reasoning = reasoning_module(product_desc, candidates)
     is_valid, validation_msg = validate_classification(reasoning, candidates)
 

@@ -9,6 +9,9 @@ load_dotenv()
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 hs_df = pd.read_csv("./dataset/harmonized-system.csv")
+hs_df["hscode"] = hs_df["hscode"].astype(str)
+hs_df = hs_df[hs_df["hscode"].str.len() >= 5]
+hs_df["hscode"] = hs_df["hscode"].astype("int64")
 hs_df = hs_df.sample(n=100, random_state=42)
 
 records = []
@@ -39,7 +42,7 @@ for _, row in hs_df.iterrows():
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}],
-        temperature=0.8,
+        temperature=0.6,
     )
 
     content = response.choices[0].message.content.strip()

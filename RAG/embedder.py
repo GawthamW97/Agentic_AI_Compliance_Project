@@ -9,6 +9,7 @@ import pandas as pd
 load_dotenv()
 client  = OpenAI()
 
+'''Create the embeddings of the HS Code and store it in ChromaDB'''
 def create_embeddings(collection_name):
 
     client = chromadb.PersistentClient(path=f"./vector_db/chroma_{collection_name}")
@@ -47,35 +48,9 @@ def create_hs_db(df,hierarchy = True):
                     ids = [str(row["hscode"]).strip("'")]
                 )
 
-def create_cn_db(df):
-    collection = create_embeddings("cn_codes")
-
-    if collection != None:
-        for _,row in tqdm(df.iterrows(), total=len(df)):
-                collection.add(
-                    documents = [row["description"]],
-                    metadatas = [row.to_dict()],
-                    ids = [str(row["tax_codes"])]
-                )
-
-def create_taric_db(df):
-    collection = create_embeddings("taric_codes")
-
-    if collection != None:
-        for _,row in tqdm(df.iterrows(), total=len(df)):
-                collection.add(
-                    documents = [row["Description"]],
-                    metadatas = [row.to_dict()],
-                    ids = [str(row["tax_codes"])]
-                )
-
+# read dataset that will be embedded completly into the Chroma database
 df_hs = pd.read_csv("./dataset/harmonized-system.csv")
-df_cn = pd.read_csv("./dataset/tax_codes.csv")
-df_taric = pd.read_csv("./dataset/taric_codes_batch_1.csv")
-
-# df_hs_count = df_hs[df_hs["hscode"].str.len() < 6]
 
 create_hs_db(df_hs,False)
-# create_cn_db(df_cn)
-# create_taric_db(df_taric)
+# create_hs_db(df_hs,True)
 
