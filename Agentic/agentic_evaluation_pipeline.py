@@ -58,7 +58,7 @@ def evaluate_agentic_pipeline(
 
         final_code = safe_int(result.get("final_code"))
 
-        # Extract Top-K codes (safe conversion)
+        # Extract Top-K codes
         hs_codes_k = []
         try:
             hs_codes_k.append(final_code)
@@ -88,7 +88,7 @@ def evaluate_agentic_pipeline(
         with open(jsonl_file, "a", encoding="utf8") as f_json:
             f_json.write(json.dumps(log_entry) + "\n")
 
-    # ---- Compute metrics ----
+    #  Compute metrics
     top1_accuracy = accuracy_score(y_true, y_pred)
     precision = precision_score(y_true, y_pred, average="macro", zero_division=0)
     recall = recall_score(y_true, y_pred, average="macro", zero_division=0)
@@ -97,7 +97,7 @@ def evaluate_agentic_pipeline(
     topk_accuracy = top_k_correct / sample_size
     total_eval_time = time.time() - total_start_time
 
-    # ---- Write CSV summary ----
+    #  Write CSV summary
     with open(csv_file, "w", newline="", encoding="utf8") as f_csv:
         writer = csv.writer(f_csv)
         writer.writerow([
