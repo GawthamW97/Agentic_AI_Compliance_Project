@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: agentic-ai-compliance-project
+metadata:
+    template: azd-init@1.22.5
+services:
+    agentic-ai-compliance-project:
+        project: .
+        host: containerapp
+        language: python
+        docker:
+            path: Dockerfile
+resources:
+    agentic-ai-compliance-project:
+        type: host.containerapp
+        port: 8000

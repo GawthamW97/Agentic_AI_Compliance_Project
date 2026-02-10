@@ -1,4 +1,4 @@
-from Agentic.agentic_default import agentic_classify
+from agentic_default import agentic_classify
 
 
 def agentic(code_desc, k):

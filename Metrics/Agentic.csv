@@ -1,0 +1,17 @@
+Use Cases,Case 03,Case 05,Type
+Number of Samples,1000,300,F
+Top-1 Accuracy,0.906,0.7367,F
+Top-20 Accuracy,0.691,0.662,F
+Precision,0.8336,0.5427,F
+Recall,0.8389,0.4492,F
+F1 Score,0.8353,0.4799,F
+Total Eval Time (sec),2207.15,709,F
+Avg Latency (sec/sample),2.2072,2.3633,F
+Number of Samples,1000,300,H
+Top-1 Accuracy,0.661,0.595,H
+Top-5 Accuracy,0.776,0.662,H
+Precision,0.5192,0.4282,H
+Recall,0.5085,0.4365,H
+F1 Score,0.3827,0.4309,H
+Total Eval Time (sec),6058.71,2109,H
+Avg Latency (sec/sample),6.0587,6.0633,H

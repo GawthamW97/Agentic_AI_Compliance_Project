@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from RAG.rag_default import classify_code_without_llm, classify_with_llm
+from rag_default import classify_code_without_llm, classify_with_llm
 load_dotenv()
 
 
