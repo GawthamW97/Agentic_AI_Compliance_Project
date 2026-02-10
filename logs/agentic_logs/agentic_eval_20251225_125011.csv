@@ -1,0 +1,2 @@
+Total Samples,Top-1 Accuracy,Top-20 Accuracy,Precision,Recall,F1 Score,Total Eval Time (sec),Avg Latency (sec)
+100,0.55,0.55,0.3785,0.3819,0.3796,388.09,3.8809

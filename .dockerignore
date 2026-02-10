@@ -1,0 +1,13 @@
+.git
+.vscode
+.env
+venv
+dataset
+logs
+output
+Metrics
+vector_db
+*.ipynb
+*.bak
+__pycache__
+*.pyc
